@@ -1,5 +1,7 @@
 # LendaryProject
 Final project for CS111
+# Team Name?
+
 # Project Ideas
  Add project ideas here, could be anything from like a text game to something out of this world. Idk -NKB
  REMEMBER WE HAVE TO COME UP WITH SOMETHING BY THIS SUNDAY (SATRUDAY IS PREFERED)
