@@ -19,3 +19,4 @@ Final project for CS111
  * Variation on Pong
  * Digital Planner
  * Encryption and decryption tool kit
+ * Variation on minesweeper
