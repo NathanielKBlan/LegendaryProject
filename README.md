@@ -1,5 +1,6 @@
 # LendaryProject
 Final project for CS111
+
 Multi-threaded text adventure game
 
 # Project Ideas
