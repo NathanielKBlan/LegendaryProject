@@ -1,5 +1,6 @@
 # LendaryProject
 Final project for CS111
+Multi-threaded text adventure game
 
 # Project Ideas
  Add project ideas here, could be anything from like a text game to something out of this world. Idk -NKB
