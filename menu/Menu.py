@@ -3,19 +3,29 @@
 ## TODO: Write the MainMenu class that inherits from this Menu class
 class Menu:
 
-    options = 0
-
     #Menu options will be contained in this list
     menu = []
 
-    #To be called upon initialization
-    def __init__(self, options):
-        self.options = options
-        menu = generateMenu(menu, options)
-        return None
+    #Menu title will be stored here
+    menuTitle = ""
 
     #Generates the default menu
-    def generateMenu(menuList, options):
+    def generateMenu(self, menuList, options):
         for i in range(options):
-            menuList[i] = str(i + 1) + ": "
+            menuList.append(str(i + 1) + ": ")
         return menuList
+
+    #Prints the menu out to the terminal
+    def printMenu(self, menuList, menuTitle):
+        print("----------" + menuTitle + "----------")
+        for i in range(len(menuList)):
+            print(menuList[i])
+        return None
+
+    #To be called upon initialization
+    #Default number of menu options is set at 1
+    def __init__(self, options = 1, menuTitle = "Default Menu"):
+        self.options = options
+        self.menuTitle = menuTitle
+        self.menu = self.generateMenu(self.menu, options)
+        return None
