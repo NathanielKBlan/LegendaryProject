@@ -8,7 +8,7 @@ class MainMenu(Menu):
 	optionsList = ["New Game", "Load Game", "Credits","Exit"]
 
 	def verifyInput(self, chosenOption):
-		switch(chosenOption, self.optionsList, self.newGame(), self.loadGame(), self.credits(), self.exit())
+		return switch(chosenOption, self.optionsList, self.newGame, self.loadGame, self.credits, self.exit)
 
 	def newGame(self):
 		print("New game started")
@@ -20,7 +20,8 @@ class MainMenu(Menu):
 		print("The credits go here")
 
 	def exit(self):
-		print("This should be a one liner here")
+		print("Exiting game...")
+		quit()
 
     #To be called upon initialization
     #Default number of menu options is set at 4
@@ -31,7 +32,9 @@ class MainMenu(Menu):
 
 		while(True):
 			self.printMenu(self.menu, self.menuTitle)
-			self.verifyInput(self.getOptionInput())
+			selectedFunc = self.verifyInput(self.getOptionInput())
+			selectedFunc()
+
 
 
 
