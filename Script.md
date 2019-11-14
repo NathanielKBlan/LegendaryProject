@@ -1,4 +1,4 @@
-Day 1
+# Day 1
 
 The rain in this town arose suddenly at the beginning of the summer. A mingled scent of ferns and earth hung in the moist air. Rain fell down to the ground and became turbulent of stream running down the sewer.
 
