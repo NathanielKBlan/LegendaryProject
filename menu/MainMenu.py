@@ -23,18 +23,20 @@ class MainMenu(Menu):
 		print("Exiting game...")
 		quit()
 
+	def startMainMenu(self):
+		while(True):
+			selectedFunc = self.verifyInput(self.getOptionInput())
+			selectedFunc()
+
+
     #To be called upon initialization
     #Default number of menu options is set at 4
     #Default menu name is set to Main Menu
     #Default options are set to: New Game, Load Game, Credits, and Exit
 	def __init__(self):
 		super().__init__(4, "Main Menu", self.optionsList)
-
-		while(True):
-			self.printMenu(self.menu, self.menuTitle)
-			selectedFunc = self.verifyInput(self.getOptionInput())
-			selectedFunc()
-
+		self.printMenu(self.menu, self.menuTitle)
+		
 
 
 

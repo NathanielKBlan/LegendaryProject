@@ -9,12 +9,16 @@ from menu.Menu import Menu
 from menu.MainMenu import MainMenu
 
 #This method is for testing functionality of the various menu objects
-def testMenu():
+def generateMenu():
     menu = MainMenu()
     return None
 
+#Testing method, change when you wish to test certain aspects of game
+def test():
+	generateMenu()
+
 #Main method of the QA testing module
 def main():
-    testMenu()
+    test()
 
 main()
