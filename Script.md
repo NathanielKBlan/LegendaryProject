@@ -1,4 +1,5 @@
-#Day 1
+# Day 1
+
 The rain in this town arose suddenly at the beginning of the summer. A mingled scent of ferns and earth hung in the moist air. Rain fell down to the ground and became turbulent of stream running down the sewer.
 
 People came in and out of the buildings of brick in minutes, with wet clothes, cold air, dripping hair and plastic umbrellas. Thermostat working unstopped, fan heater merrily blasted Kenny G.
