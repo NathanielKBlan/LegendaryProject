@@ -11,7 +11,6 @@ from menu.MainMenu import MainMenu
 #This method is for testing functionality of the various menu objects
 def testMenu():
     menu = MainMenu()
-    menu.printMenu(menu.menu, menu.menuTitle)
     return None
 
 #Main method of the QA testing module

@@ -22,6 +22,10 @@ class Menu:
             print(menuList[i])
         return None
 
+    def getOptionInput(self):
+        chosenOption = input("Which path shall you take: ")
+        return chosenOption
+
     #To be called upon initialization
     #Default number of menu options is set at 1
     def __init__(self, options = 1, menuTitle = "Default Menu", optionsList = ['']):
