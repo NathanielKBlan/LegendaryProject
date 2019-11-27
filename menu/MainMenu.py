@@ -38,11 +38,5 @@ class MainMenu(Menu):
         super().__init__(4, "Main Menu", self.optionsList)
         self.printMenu(self.menu, self.menuTitle)
 
-def main():
-    mainMenu = MainMenu()
-    mainMenu.getInput()
-
-main()
-
 
 
