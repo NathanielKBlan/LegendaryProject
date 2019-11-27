@@ -1,16 +1,22 @@
+from menu.CharacterCreationMenu import CharacterCreationMenu
+
 class Game:
 
-    def __init__(self, gameName, playerName):
-        self.__gameName = gameName
+    def __init__(self, playerName):
         self.__saveDirectory = "Set save directory here"
         self.__playerName = playerName
 
     def startGame(self):
         # Write implementation for code here
-        self.printPrologue()
+        self.__printPrologue()
+        characterCreationMenu = CharacterCreationMenu(self.__playerName)
+        self.__player = characterCreationMenu.getCharacterClass()
+        self.__player.setName(self.__playerName)
+        print(self.__player.getName() + " the " + self.__player.__class__.__name__ + ", welcome to the Land of Ashes")
         pass
 
-    def printPrologue(self):
+    def __printPrologue(self):
+        print("---------Prologue----------")
         print("Centuries ago, humanity ruled the world. Lives were prosperous and everlasting.")
         print("Then from the abyss they came, the ancient rulers of the world awoke from their slumber.")
         print("The lord of flames, Pyrodin and his scorching knights.")
@@ -22,4 +28,7 @@ class Game:
         print("Merider unleashed a series of tidal waves that destroyed remaining hope.")
         print("And Erthel, betrayed the last that remained, and humanity was no more.")
         print("Or so they thought...")
+
+    def getPlayerName(self):
+        return self.__playerName
 

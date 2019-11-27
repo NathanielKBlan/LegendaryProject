@@ -1,7 +1,7 @@
 #This is the default player class, can be chosen if so wished
 class Ordinary:
 
-    def __init__(self, health = 25, charisma = 10, strength = 10, intelligence = 10, resourcefulness = 10, faith = 10, luck = 10):
+    def __init__(self, health = 25, charisma = 10, strength = 10, intelligence = 10, resourcefulness = 10, faith = 10, luck = 10, name = "player"):
         self.__health = health
         self.__charisma = charisma
         self.__strength = strength
@@ -9,6 +9,7 @@ class Ordinary:
         self.__resourcefulness = resourcefulness
         self.__faith = faith
         self.__luck = luck
+        self.__name = name
         self.__inventory = []
 
     #The following methods are getters and setters, all of these will be inherited by other classes
@@ -34,6 +35,9 @@ class Ordinary:
     def getFaith(self):
         return self.__faith
 
+    def getName(self):
+        return self.__name
+
     def setHealth(self, newHealth):
         self.__health = newHealth
 
@@ -55,5 +59,9 @@ class Ordinary:
     def setFaith(self, newFaith):
         self.__faith = newFaith
 
+    def setName(self, newName):
+        self.__name = newName
+
     def addToInventory(self, item):
         self.__inventory.append(item)
+
