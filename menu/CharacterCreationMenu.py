@@ -12,7 +12,7 @@ class CharacterCreationMenu(Menu):
         super().__init__(4, "Character Creation Menu", self.optionsList)
         self.printIntroductionToStory()
         self.printMenu(self.menu, self.menuTitle)
-        self.__chosenClass = self.chooseClass(name)
+        self.__player = self.chooseClass(name)
 
 
 
@@ -27,5 +27,5 @@ class CharacterCreationMenu(Menu):
         chosenOption = input("Choose your character class: ")
         return switch(chosenOption, self.optionsList, Ordinary(name), CombatArmsExpert(name), Hunter(name), SilverTongue(name))
 
-    def getCharacterClass(self):
-        return self.__chosenClass
+    def getPlayer(self):
+        return self.__player
