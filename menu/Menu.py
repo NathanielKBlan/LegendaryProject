@@ -3,9 +3,6 @@
 ## TODO: Write the MainMenu class that inherits from this Menu class
 class Menu:
 
-    #Menu options will be contained in this list
-    menu = []
-
     #Menu title will be stored here
     menuTitle = ""
 
@@ -20,7 +17,6 @@ class Menu:
         print("----------" + menuTitle + "----------")
         for i in range(len(menuList)):
             print(menuList[i])
-        return None
 
     def getOptionInput(self):
         chosenOption = input("Which path shall you take: ")
@@ -29,6 +25,7 @@ class Menu:
     #To be called upon initialization
     #Default number of menu options is set at 1
     def __init__(self, options = 1, menuTitle = "Default Menu", optionsList = ['']):
+        self.menu = []
         self.options = options
         self.menuTitle = menuTitle
         self.menu = self.generateMenu(self.menu, options, optionsList)
