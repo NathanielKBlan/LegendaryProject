@@ -4,7 +4,7 @@ from classes.Ordinary import Ordinary
 from classes.Silver_Tongue import SilverTongue
 
 def test():
-	a = SilverTongue() #Test failed at here
+	a = SilverTongue("Wryn")
 
 	print(a.getHealth())
 	print(a.getCharisma())
