@@ -15,7 +15,8 @@ def generateMenu():
 
 #Testing method, change when you wish to test certain aspects of game
 def test():
-	generateMenu()
+    MainMenu.input = lambda: 'New Game'
+    generateMenu()
 
 #Main method of the QA testing module
 def main():

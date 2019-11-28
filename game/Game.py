@@ -1,3 +1,4 @@
+from areas.KaltsSea import KaltsSea
 from menu.CharacterCreationMenu import CharacterCreationMenu
 
 class Game:
@@ -13,6 +14,7 @@ class Game:
         self.__player = characterCreationMenu.getCharacterClass()
         self.__player.setName(self.__playerName)
         print(self.__player.getName() + " the " + self.__player.__class__.__name__ + ", welcome to the Land of Ashes")
+        firstZone = KaltsSea(self.__player)
         pass
 
     def __printPrologue(self):

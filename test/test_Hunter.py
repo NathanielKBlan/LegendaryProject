@@ -4,7 +4,7 @@ from classes.Ordinary import Ordinary
 from classes.Hunter import Hunter
 
 def test():
-	a = Hunter() #Test failed at here
+	a = Hunter("Wryn")
 
 	print(a.getHealth())
 	print(a.getCharisma())

@@ -11,6 +11,7 @@ class Ordinary:
         self.__luck = luck
         self.__name = name
         self.__inventory = []
+        self.__exp = 0
 
     #The following methods are getters and setters, all of these will be inherited by other classes
     #Can be overwritten if so wished
@@ -38,6 +39,9 @@ class Ordinary:
     def getName(self):
         return self.__name
 
+    def getExp(self):
+        return self.__exp
+
     def setHealth(self, newHealth):
         self.__health = newHealth
 
@@ -64,4 +68,5 @@ class Ordinary:
 
     def addToInventory(self, item):
         self.__inventory.append(item)
+
 

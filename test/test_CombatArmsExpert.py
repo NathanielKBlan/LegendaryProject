@@ -4,7 +4,7 @@ from classes.Ordinary import Ordinary
 from classes.Combat_Arms_Expert import CombatArmsExpert
 
 def test():
-	a = CombatArmsExpert() #Test failed at here
+	a = CombatArmsExpert("Wryn")
 
 	print(a.getHealth())
 	print(a.getCharisma())
