@@ -21,12 +21,9 @@ def test():
 	
 	a.takeDamage(20)
 	print(a.getHealth())
-
-	a.restoreHealth()
-	print(a.getHealth())
 	
 	print(a.getStrength())
-	a.attack('Pikachu')
+	a.attack("Pikachu")
 
 def main():
 	test()
