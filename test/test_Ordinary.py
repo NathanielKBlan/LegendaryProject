@@ -13,9 +13,14 @@ def test():
 	#Test setters
 	a.setHealth(20)
 	print("New health:", a.getHealth())
+
 	a.setCharisma(100)
 	print("New charisma:", a.getCharisma())
+
 	a.addToInventory("Golden armour")
+	
+	a.takeDamage(20)
+	print(a.getHealth())
 
 def main():
 	test()
