@@ -69,4 +69,7 @@ class Ordinary:
     def addToInventory(self, item):
         self.__inventory.append(item)
 
+    def takeDamage(self, demage):
+        self.__health -= demage
+
 
