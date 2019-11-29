@@ -8,9 +8,6 @@ from game.Game import Game
 class MainMenu(Menu):
     optionsList = ["New Game", "Load Game", "Credits", "Exit"]
 
-    def verifyInput(self, chosenOption):
-        return switch(chosenOption, self.optionsList, self.newGame, self.loadGame, self.credits, self.exit)
-
     def newGame(self):
         newGame = Game(input("What is your name? "))
         newGame.startGame()
@@ -28,6 +25,10 @@ class MainMenu(Menu):
     def getInput(self):
         selectedFunc = self.verifyInput(self.getOptionInput())
         selectedFunc()
+
+    def verifyInput(self, chosenOption):
+        return switch(chosenOption, self.optionsList, self.newGame, self.loadGame, self.credits, self.exit)
+
 
 
     # To be called upon initialization

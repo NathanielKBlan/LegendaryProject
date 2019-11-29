@@ -1,3 +1,5 @@
+from random import random
+
 
 class Enemy():
 
@@ -10,3 +12,8 @@ class Enemy():
 
     def getAbilities(self):
         return self.__abilities
+
+    def slashAttack(self):
+        damage = int(random.random() * 5)
+        print("You were attacked for: " + damage + " damage")
+        return damage

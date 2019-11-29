@@ -1,6 +1,9 @@
 #This is the default menu class which takes in two parameters upon initialization:
 #itself and the amount of options the menu will contain
 ## TODO: Write the MainMenu class that inherits from this Menu class
+from tools.input_verification import switch
+
+
 class Menu:
 
     #Menu title will be stored here
@@ -21,6 +24,7 @@ class Menu:
     def getOptionInput(self):
         chosenOption = input("Which path shall you take: ")
         return chosenOption
+
 
     #To be called upon initialization
     #Default number of menu options is set at 1
