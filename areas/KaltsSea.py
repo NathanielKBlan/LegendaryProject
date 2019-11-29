@@ -10,9 +10,13 @@ from tools.input_verification import switch
 class KaltsSea(Area):
 
     def __init__(self, player):
+
         super().__init__("Kalts Sea", "The Depth", None)
         self.__firstTimeAtLightHouse = True
         self.__solomonIsDead = False
+
+        super().__init__("Kalts Sea", "The Depth", None, None)
+
         self.__player = player
         self.__printArrival()
 

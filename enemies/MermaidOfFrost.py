@@ -8,6 +8,13 @@ class MermaidOfFrost(Enemy):
     def __init__(self, expModifier):
         super().__init__(20 + (expModifier * 0.05), ["Slash", "Freeze", "Entrance"])
 
+
+    def slashAttack(self):
+        damage = int(random.random() * 5)
+        print("The mermaid slashes at you for:", damage, "damage")
+        return damage
+
+
     def freezeAttack(self):
         print("You can't move, it's too cold.")
         totalDamage = self.slashAttack()
@@ -18,5 +25,5 @@ class MermaidOfFrost(Enemy):
     def entranceAttack(self, player):
         print("You feel entranced by the mermaid's beauty, you would do anything for her.")
         totalDamage = player.attack()
-        print("You stab yourself for: " + totalDamage + " damage!")
+        print("You stab yourself for: ", totalDamage, " damage!")
         return totalDamage
