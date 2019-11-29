@@ -1,4 +1,7 @@
+import random
+
 #This is the default player class, can be chosen if so wished
+
 class Ordinary:
 
     def __init__(self, health = 25, charisma = 10, strength = 10, intelligence = 10, resourcefulness = 10, faith = 10, luck = 10, name = "player"):
@@ -68,5 +71,17 @@ class Ordinary:
 
     def addToInventory(self, item):
         self.__inventory.append(item)
+
+    def takeDamage(self, demage):
+        self.__health -= demage
+
+    def restoreHealth(self):
+        self.__health += 5
+
+    def attack(self, enemy):
+        demage = random.randint(1, (5 + self.__strength / 2))
+        print("You attacked", enemy + ".")
+        print(enemy, "got", demage, "demage.")
+        return demage
 
 
