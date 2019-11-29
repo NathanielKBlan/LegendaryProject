@@ -7,7 +7,7 @@ from enemies.MermaidOfFrost import MermaidOfFrost
 class KaltsSea(Area):
 
     def __init__(self, player):
-        super().__init__("Kalts Sea", "The Depth", None)
+        super().__init__("Kalts Sea", "The Depth", None, None)
         self.__player = player
 
     def printArrival(self):

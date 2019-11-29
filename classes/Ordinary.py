@@ -75,6 +75,7 @@ class Ordinary:
     def takeDamage(self, demage):
         self.__health -= demage
 
+yienchou-patch-12
     def restoreHealth(self):
         self.__health += 5
 
@@ -84,4 +85,5 @@ class Ordinary:
         print(enemy, "got", demage, "demage.")
         return demage
 
+master
 
