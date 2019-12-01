@@ -1,11 +1,12 @@
-import random
 
 #This is the default player class, can be chosen if so wished
+import random
 
 class Ordinary:
 
-    def __init__(self, health = 25, charisma = 10, strength = 10, intelligence = 10, resourcefulness = 10, faith = 10, luck = 10, name = "player"):
+    def __init__(self, name = "player", health = 25, charisma = 10, strength = 10, intelligence = 10, resourcefulness = 10, faith = 10, luck = 10):
         self.__health = health
+        self.__maxHealth = health
         self.__charisma = charisma
         self.__strength = strength
         self.__intelligence = intelligence
@@ -72,18 +73,19 @@ class Ordinary:
     def addToInventory(self, item):
         self.__inventory.append(item)
 
-    def takeDamage(self, demage):
-        self.__health -= demage
+    def getExp(self):
+        return self.__exp
 
-yienchou-patch-12
-    def restoreHealth(self):
-        self.__health += 5
+    def setExp(self, newExp):
+        self.__exp = newExp
 
     def attack(self, enemy):
-        demage = random.randint(1, (5 + self.__strength / 2))
-        print("You attacked", enemy + ".")
-        print(enemy, "got", demage, "demage.")
-        return demage
+        damage = (self.__strength * 0.10) + int(random.random() * 4 + 1)
+        print("You dealt " + str(damage) + " to " + enemy.getName())
+        return damage
 
-master
+    def lowerHealth(self, damageTaken):
+        self.__health = self.__health - damageTaken
 
+    def restoreHealth(self):
+        self.__health = self.__maxHealth
