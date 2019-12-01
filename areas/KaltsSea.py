@@ -10,18 +10,19 @@ from tools.input_verification import switch
 class KaltsSea(Area):
 
     def __init__(self, player):
-        super().__init__("Kalts Sea", "The Depth", None)
         self.__firstTimeAtLightHouse = True
         self.__solomonIsDead = False
         self.__player = player
-        self.__printArrival()
+        self.printArrival()
+        super().__init__("Kalts Sea", "The Depth", None, [MermaidOfFrost(player.getExp())])
+
 
     def printArrival(self):
         print("You set out to find the source of those voices and set out to sea on a raft.")
         print("Days of travel have gotten you to a vast empty ocean, however this is no ordinary ocean.")
         print("Here, the water chills you to the bone, the only source of warmth is a nearby light house. ")
         print("You don't mind that, you hear the voice in the water.")
-        choice = switch(input("You feel like: "), ["Diving in", "Going to the lighthouse"], self.diveIn, self.proceedToLightHouse())
+        choice = switch(input("Do you feel like diving in, or going to the lighthouse? "), ["Diving in", "Going to the lighthouse"], self.diveIn, self.proceedToLightHouse())
         choice()
 
     def diveIn(self):
@@ -52,31 +53,32 @@ class KaltsSea(Area):
             self.battleWithMermaids()
         pass
 
-    def battleWithMermaids(self):
+    def battleWithMermaids(self, player):
         print("While searching for the voice, you lose yourself in the abyss of Kalts Sea, and a wave of frost hits you.")
         for i in range(3):
             mermaidOfFrost = MermaidOfFrost(self.__player.getExp())
-            firstStrike = int(random.random() * 1 + 1)
-            if (firstStrike == 1):
+            firstStrike = int(random.random() * 5 + 1)
+            if (firstStrike == 1 or firstStrike == 3):
                 print("Quick to your senses you slash the mermaid with your weapon")
-                mermaidOfFrost.lowerHealth(self.__player.attack())
+                mermaidOfFrost.lowerHealth(self.__player.attack(mermaidOfFrost))
             else:
                 print("The mermaid pierces you")
-                self.__player.lowerHealth(mermaidOfFrost.attack())
-            while (mermaidOfFrost.getHealth() > 0 and self.__player.getHealth() > 0):
-                print("Your health: " + self.__player.getHealth())
-                print("Mermaid's health: " + mermaidOfFrost.getHealth())
+                self.__player.lowerHealth(mermaidOfFrost.slashAttack())
+            while(int(mermaidOfFrost.getHealth()) > 0 and int(self.__player.getHealth() > 0)):
+                print("Your health: " + str(self.__player.getHealth()))
+                print("Mermaid's health: " + str(mermaidOfFrost.getHealth()))
                 input("Enter anything to continue")
-                mermaidOfFrost.lowerHealth(self.__player.attack())
-                self.__player.lowerHealth(mermaidOfFrost.attack())
-            if (self.__player.getHealth < 0):
+                mermaidOfFrost.lowerHealth(self.__player.attack(mermaidOfFrost))
+                self.__player.lowerHealth(mermaidOfFrost.slashAttack())
+            if (self.__player.getHealth() < 0):
                 print("The mermaid injures you gravely. You go back to the light house.")
                 self.__player.setExp(self.__player.getExp() + 50)
                 self.proceedToLightHouse()
+                break
             else:
                 print("You have slain the mermaid, but she was not alone...")
                 self.__player.setExp(self.__player.getExp() + 250)
-                self.proceedToLightHouse()
+                self.__player.restoreHealth()
         print("Having overcome the mermaids, you delve deeper into Kalts Sea and proceed to the Abyss bellow the sea.")
 
     def battleWithSolomon(self):
@@ -85,15 +87,15 @@ class KaltsSea(Area):
         firstStrike = int(random.random() * 1 + 1)
         if (firstStrike == 1):
             print("Quick to your senses you slash Solomon with your weapon")
-            solomon.lowerHealth(self.__player.attack())
+            solomon.lowerHealth(self.__player.attack(solomon))
         else:
             print("The mermaid pierces you")
             self.__player.lowerHealth(solomon.attack())
-        while (solomon.getHealth() > 0 and self.__player.getHealth() > 0):
-            print("Your health: " + self.__player.getHealth())
-            print("Mermaid's health: " + solomon.getHealth())
+        while (int(solomon.getHealth()) > 0 and int(self.__player.getHealth()) > 0):
+            print("Your health: " + str(self.__player.getHealth()))
+            print("Mermaid's health: " + str(solomon.getHealth()))
             input("Enter anything to continue")
-            solomon.lowerHealth(self.__player.attack())
+            solomon.lowerHealth(self.__player.attack(solomon))
             self.__player.lowerHealth(solomon.attack())
         if (self.__player.getHealth < 0):
             print("Solomon cripples you. You wake up from the trance.")
