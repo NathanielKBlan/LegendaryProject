@@ -1,6 +1,6 @@
+
 #This is the default player class, can be chosen if so wished
 import random
-
 
 class Ordinary:
 
