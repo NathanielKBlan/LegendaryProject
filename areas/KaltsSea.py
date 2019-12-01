@@ -22,7 +22,7 @@ class KaltsSea(Area):
         print("Days of travel have gotten you to a vast empty ocean, however this is no ordinary ocean.")
         print("Here, the water chills you to the bone, the only source of warmth is a nearby light house. ")
         print("You don't mind that, you hear the voice in the water.")
-        choice = switch(input("Do you feel like diving in, or going to the lighthouse? "), ["Diving in", "Going to the lighthouse"], self.diveIn, self.proceedToLightHouse())
+        choice = switch(input("Do you feel like diving in, or going to the lighthouse? "), ["Diving in", "Going to the lighthouse"], self.diveIn, self.proceedToLightHouse)
         choice()
 
     def diveIn(self):
@@ -33,6 +33,7 @@ class KaltsSea(Area):
 
     def proceedToLightHouse(self):
         #Here we need a script for branches as well as a way of telling if branch was taken
+        firstTimeAtLightHouse = False
         if(not self.__solomonIsDead):
             print("At the light house, a wave of warmth hits your face as you enter.")
             if (self.__firstTimeAtLightHouse):
@@ -70,16 +71,19 @@ class KaltsSea(Area):
                 input("Enter anything to continue")
                 mermaidOfFrost.lowerHealth(self.__player.attack(mermaidOfFrost))
                 self.__player.lowerHealth(mermaidOfFrost.slashAttack())
-            if (self.__player.getHealth() < 0):
+            if (self.__player.getHealth() <= 0):
                 print("The mermaid injures you gravely. You go back to the light house.")
                 self.__player.setExp(self.__player.getExp() + 50)
-                self.proceedToLightHouse()
                 break
             else:
                 print("You have slain the mermaid, but she was not alone...")
                 self.__player.setExp(self.__player.getExp() + 250)
                 self.__player.restoreHealth()
-        print("Having overcome the mermaids, you delve deeper into Kalts Sea and proceed to the Abyss bellow the sea.")
+        if(self.__player.getHealth() <= 0):
+            self.__player.restoreHealth()
+            self.proceedToLightHouse()
+        else:
+            print("Having overcome the mermaids, you delve deeper into Kalts Sea and proceed to the Abyss bellow the sea.")
 
     def battleWithSolomon(self):
         print("Solomon: Have you gone mad?! Well I'm no push over! Prepare yourself!")
