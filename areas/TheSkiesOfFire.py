@@ -73,7 +73,7 @@ class TheSikesOfFire(Area):
         	self.__player.setExp(self.__player.getExp() + 800)
         	self.__player.levelUp()
  			print("---------------------------------------------")
- 			self.endOfStory2
+ 			self.endOfStory2()
 
  	def endOfStroy1(self):
  		pass
