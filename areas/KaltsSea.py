@@ -113,4 +113,27 @@ class KaltsSea(Area):
 
     def proceedToAbyss(self, player):
         #Implement code here, also end of area, next area is boss area
+        print("The abyss is dark and desolate, save for Merider.")
+        print("Merider: A human no less, I will end thee")
+        firstStrike = int(random.random() * 5 + 1)
+        if (firstStrike == 1 or firstStrike == 3):
+            print("Quick to your senses you slash the mermaid with your weapon")
+            mermaidOfFrost.lowerHealth(self.__player.attack(mermaidOfFrost))
+        else:
+            print("The mermaid pierces you")
+            self.__player.lowerHealth(mermaidOfFrost.slashAttack())
+        while (int(mermaidOfFrost.getHealth()) > 0 and int(self.__player.getHealth() > 0)):
+            print("Your health: " + str(self.__player.getHealth()))
+            print("Mermaid's health: " + str(mermaidOfFrost.getHealth()))
+            input("Enter anything to continue")
+            mermaidOfFrost.lowerHealth(self.__player.attack(mermaidOfFrost))
+            self.__player.lowerHealth(mermaidOfFrost.slashAttack())
+        if (self.__player.getHealth() <= 0):
+            print("The mermaid injures you gravely. You go back to the light house.")
+            self.__player.setExp(self.__player.getExp() + 50)
+            break
+        else:
+            print("You have slain the mermaid, but she was not alone...")
+            self.__player.setExp(self.__player.getExp() + 250)
+            self.__player.restoreHealth()
         pass
