@@ -8,7 +8,7 @@ from tools.input_verification import *
 class CharacterCreationMenu(Menu):
 
     def __init__(self, name):
-        self.optionsList = ["Ordinary", "Combat Arms Expert", "Hunter", "Silver Tongue"]
+        self.optionsList = ["Ordinary", "Combat Arms Expert", "Hunter", "Silver Tongue", "Scholar", "Warrior"]
         super().__init__(4, "Character Creation Menu", self.optionsList)
         self.printIntroductionToStory()
         self.printMenu(self.menu, self.menuTitle)
@@ -25,7 +25,7 @@ class CharacterCreationMenu(Menu):
 
     def chooseClass(self, name):
         chosenOption = input("Choose your character class: ")
-        return switch(chosenOption, self.optionsList, Ordinary(name), CombatArmsExpert(name), Hunter(name), SilverTongue(name))
+        return switch(chosenOption, self.optionsList, Ordinary(name), CombatArmsExpert(name), Hunter(name), SilverTongue(name), Scholar(name), Warrior(name))
 
     def getPlayer(self):
         return self.__player
