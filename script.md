@@ -27,4 +27,11 @@ The lullaby at night and the aubade at the morning sooner became torments for th
 Knowing the boy has awaken, the mermaid turned her head and looked at him with a cheerful smile, revealing her bright fangs, "Yes, that's me." [last battle with the mermaid]
 
 [branch 1H: won]
+When the boy realized what he had done, he was holding the body of the mermaid in arms. The body of her was in blood. The body watched her face, she looked like she was sleeping. The boy liked to watched her sleep face. As she was just a innocent girl. But she would never wake up again. Waves of emotion suddenly caught him. His heart was tremblig, and his eyes were in tears.
+
+A long time ago, there was a girl who loves singing. 
+
+
+
+
 
