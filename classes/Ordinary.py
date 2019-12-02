@@ -89,3 +89,13 @@ class Ordinary:
 
     def restoreHealth(self):
         self.__health = self.__maxHealth
+
+    def levelUp(self):
+        self.__health = health * (self.__exp * 0.025)
+        self.__maxHealth = health * (self.__exp * 0.025)
+        self.__charisma = charisma * (self.__exp * 0.025)
+        self.__strength = strength * (self.__exp * 0.025)
+        self.__intelligence = intelligence * (self.__exp * 0.025)
+        self.__resourcefulness = resourcefulness * (self.__exp * 0.025)
+        self.__faith = faith * (self.__exp * 0.025)
+        self.__luck = luck * (self.__exp * 0.025)
