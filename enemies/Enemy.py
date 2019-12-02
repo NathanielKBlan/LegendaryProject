@@ -6,6 +6,7 @@ class Enemy():
     def __init__(self, name, health, abilities):
         self.__name = name
         self.__health = health
+        self.__maxHealth = health
         self.__abilities = abilities
 
     def getHealth(self):
@@ -24,3 +25,6 @@ class Enemy():
 
     def getName(self):
         return self.__name
+
+    def restoreHealth(self):
+        self.__health = self.__maxHealth
