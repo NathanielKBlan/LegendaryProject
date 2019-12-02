@@ -1,7 +1,7 @@
 
 class TheSikesOfFire(Area):
 
-	def __init(self, player):
+	def __init__(self, player):
 		self.__player = player
 		self.printArrival()
 
