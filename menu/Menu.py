@@ -1,10 +1,10 @@
 #This is the default menu class which takes in two parameters upon initialization:
 #itself and the amount of options the menu will contain
 ## TODO: Write the MainMenu class that inherits from this Menu class
-class Menu:
+from tools.input_verification import switch
 
-    #Menu options will be contained in this list
-    menu = []
+
+class Menu:
 
     #Menu title will be stored here
     menuTitle = ""
@@ -20,15 +20,16 @@ class Menu:
         print("----------" + menuTitle + "----------")
         for i in range(len(menuList)):
             print(menuList[i])
-        return None
 
     def getOptionInput(self):
         chosenOption = input("Which path shall you take: ")
         return chosenOption
 
+
     #To be called upon initialization
     #Default number of menu options is set at 1
     def __init__(self, options = 1, menuTitle = "Default Menu", optionsList = ['']):
+        self.menu = []
         self.options = options
         self.menuTitle = menuTitle
         self.menu = self.generateMenu(self.menu, options, optionsList)

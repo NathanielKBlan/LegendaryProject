@@ -13,12 +13,16 @@ def switch(value, keys, *arg):
 		switchingCasesNums[i] = arg[i]
 
 	if(value not in keys):
-		if(int(value) <= 0 or int(value) > len(arg)):
+		try:
+			if (int(value) <= 0 or int(value) > len(arg)):
+				newVal = input("That was invalid input, please enter a new option: ")
+				return switch(newVal, keys, arg)
+			else:
+				case = switchingCasesNums.get(int(value) - 1)
+				return case
+		except ValueError:
 			newVal = input("That was invalid input, please enter a new option: ")
 			return switch(newVal, keys, arg)
-		else:
-			case = switchingCasesNums.get(int(value) - 1)
-			return case
 	else:
 		case = switchingCases.get(value)
 		return case
