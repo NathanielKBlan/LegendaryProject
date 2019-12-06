@@ -81,7 +81,7 @@ class Ordinary:
 
     def attack(self, enemy):
         damage = (self.__strength * 0.10) + int(random.random() * 4 + 1)
-        print("You dealt " + str(damage) + " to " + enemy.getName())
+        print("You dealt " + str(damage) + " to " + str(enemy.getName()))
         return damage
 
     def lowerHealth(self, damageTaken):
@@ -91,11 +91,11 @@ class Ordinary:
         self.__health = self.__maxHealth
 
     def levelUp(self):
-        self.__health = health * (self.__exp * 0.025)
-        self.__maxHealth = health * (self.__exp * 0.025)
-        self.__charisma = charisma * (self.__exp * 0.025)
-        self.__strength = strength * (self.__exp * 0.025)
-        self.__intelligence = intelligence * (self.__exp * 0.025)
-        self.__resourcefulness = resourcefulness * (self.__exp * 0.025)
-        self.__faith = faith * (self.__exp * 0.025)
-        self.__luck = luck * (self.__exp * 0.025)
+        self.__health = self.__health * (self.__exp * 0.025)
+        self.__maxHealth = self.__health * (self.__exp * 0.025)
+        self.__charisma = self.__charisma * (self.__exp * 0.025)
+        self.__strength = self.__strength * (self.__exp * 0.025)
+        self.__intelligence = self.__intelligence * (self.__exp * 0.025)
+        self.__resourcefulness = self.__resourcefulness * (self.__exp * 0.025)
+        self.__faith = self.__faith * (self.__exp * 0.025)
+        self.__luck = self.__luck * (self.__exp * 0.025)
