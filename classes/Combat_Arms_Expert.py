@@ -1,3 +1,7 @@
+
+#This is the combat arms expert module that inherit from the Ordinary class
+#& One of the battle character for player to chooce at the beginning of the game 
+
 from classes.Ordinary import Ordinary
 
 class CombatArmsExpert(Ordinary):
