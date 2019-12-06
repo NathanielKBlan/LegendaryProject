@@ -1,3 +1,6 @@
+
+#This is the game class which call upon the first area module then starts the game
+#This class includes three methods: startGame, __printPrologue, getPlayerName
 from areas.KaltsSea import KaltsSea
 from menu.CharacterCreationMenu import CharacterCreationMenu
 
