@@ -12,7 +12,7 @@ This is a text adventure game about a chosen human who goes on a journey to alev
 1. Open command terminal
 2. cd to install directory
 3. cd to game subdirectory
-4 run command: python3 LandOfAshes.py
+4. run command: python3 LandOfAshes.py
 ## Tools package
 
 This package really only contains one module, input_verification.py which contains only one method, the switch method.
