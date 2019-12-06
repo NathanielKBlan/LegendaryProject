@@ -1,23 +1,28 @@
+
+#This is the first area of the game where the story begins, Kalt Sea.
+
 import random
 
-from areas.Area import Area
-from areas.LandBetweenWorlds import LandBetweenWorlds
-from enemies.Enemy import Enemy
+from areas.Area import Area #Import the Area module as the parent class
+from areas.LandBetweenWorlds import LandBetweenWorlds #Import the module in which the story continues to the next area
+from enemies.Enemy import Enemy #Import the Enemy module as the parent class for two enemy classes of this area
 from enemies.Merider import Merider
 from enemies.MermaidOfFrost import MermaidOfFrost
 from menu.Menu import Menu
-from tools.input_verification import switch
-
+from tools.input_verification import switch #Import the switch method
 
 class KaltsSea(Area):
-
+    #This is the subclass inherit from the Area class
+    #Which takes eight methods of events: printArrival, diveIn, proceedToLightHouse, battleWithMermaids, battleWithSolomon, proceedToAbyss
+    #useFact, fightHeadOn
+    
+    #This is the constructor method that takes one instance variable, player
     def __init__(self, player):
         self.__firstTimeAtLightHouse = True
         self.__player = player
         self.__solomonIsDead = False
-        self.printArrival()
-        super().__init__("Kalts Sea", "The Depth", None, [MermaidOfFrost(player.getExp())])
-
+        self.printArrival() #Prints out the arrival story to the terminal
+        super().__init__("Kalts Sea", "The Depth", None, [MermaidOfFrost(player.getExp())])  #Call the Area module w/ instance variables that are meaningful to this area
 
     def printArrival(self):
         print("----------The Land of Ashes----------")
@@ -25,16 +30,16 @@ class KaltsSea(Area):
         print("Days of travel have gotten you to a vast empty ocean, however this is no ordinary ocean.")
         print("Here, the water chills you to the bone, the only source of warmth is a nearby light house. ")
         print("You don't mind that, you hear the voice in the water.")
+        #Use the switch method to get the choice from player then call upon the corresponding function
         choice = switch(input("Do you feel like diving in, or going to the lighthouse? "), ["Diving in", "Going to the lighthouse"], [self.diveIn, self.proceedToLightHouse])
         choice()
 
     def diveIn(self):
         print("You dive into the frigid waters and head to what lies beneath.")
-        self.battleWithMermaids(self.__player)
-        self.proceedToAbyss(self.__player)
+        self.battleWithMermaids(self.__player) #Call the battle function
+        self.proceedToAbyss(self.__player) #Heading to the next area after battled with the enemies
 
     def proceedToLightHouse(self):
-        #Here we need a script for branches as well as a way of telling if branch was taken
         if(not self.__solomonIsDead):
             print("---------LIGHTHOUSE---------")
             print("At the light house, a wave of warmth hits your face as you enter.")
@@ -45,14 +50,16 @@ class KaltsSea(Area):
                 print("You seek the lovely voices of the mermaids and eternal warmth, look elsewhere, you won't find that here.")
                 print("You must go to the Abyss, there the queen of frost will grant your wished *laughs maniacally*")
                 print("You make your way to sea.")
-                print("----------------------------")
+                print("----------------------------") 
                 self.battleWithMermaids(self.__player)
                 self.__firstTimeAtLightHouse = False
 
             else:
                 print("You feel rage at having been defeated. You feel rage of not being warned about the mermaids of frost.")
                 print("The essence of the Land of Ashes is getting to you. You feel rage as you lay your eyes upon Solomon.")
+                #Generate the menu of choice and print it out to the terminal
                 fateOfSolomon = Menu(2, "Fate of Solomon", ["Killing Solomon", "Sparing Solomon"])
+                #Use the switch method to get the choice from player then call upon the corresponding function
                 fate = switch(input("You feel like: "), ["Killing Solomon", "Sparing Solomon"], [self.battleWithSolomon, self.battleWithMermaids])
                 fate()
 
@@ -64,9 +71,11 @@ class KaltsSea(Area):
 
 
     def battleWithMermaids(self, player):
+        #This function generates the battle w/ the first enemy, Mermaids of Frost
         print("-------Kalts Sea-------")
         print("While searching for the voice, you lose yourself in the abyss of Kalts Sea, and a wave of frost hits you.")
 
+        #The number of the enemies is three therefore the battle is looped for three times
         for i in range(3):
 
             mermaidOfFrost = MermaidOfFrost(self.__player.getExp())
@@ -108,6 +117,7 @@ class KaltsSea(Area):
             self.proceedToAbyss(player)
 
     def battleWithSolomon(self):
+        #This function generates the battle w/ the second enemy, Solomon
         print("Solomon: Have you gone mad?! Well I'm no push over! Prepare yourself!")
 
         solomon = Enemy(25, None)
@@ -142,9 +152,7 @@ class KaltsSea(Area):
             self.proceedToLightHouse()
 
     def proceedToAbyss(self, player):
-
-        #Implement code here, also end of area, next area is boss area
-
+        #This function generates the battle w/ the third enemy of this area, Merider
         merider = Merider()
 
         print("------The Abyss------")
@@ -187,13 +195,12 @@ class KaltsSea(Area):
             self.__player.setExp(self.__player.getExp() + 500)
             self.__player.restoreHealth()
             self.__player.levelUp()
-            nextLevel = LandBetweenWorlds(player)
+            nextLevel = LandBetweenWorlds(player) #Call the subclass to proceed to the next area
 
         pass
 
     def useFact(self, player, enemy):
-
-        #Skill check here
+        #This function checks the skill of the player at that moment then generates different outputs
         if(player.getResourcefulness() >= 15 and player.getIntelligence() >= 12):
             print("As quietly as possible you stab the Queen in the back for half her health!")
             enemy.lowerHealth(enemy.getHealth() / 2)

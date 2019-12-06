@@ -1,15 +1,21 @@
+
+#This is the third area of the game, the Skies of Fire.
+
 import random
 
 import self as self
 
-from areas.Area import Area
-from enemies.Pyrodin import Pyrodin
+from areas.Area import Area #Import the Area module as the parent class
+from enemies.Pyrodin import Pyrodin #Import the Enemy module as the parent class for two enemy classes of this area
 from menu.Menu import Menu
 from tools.input_verification import switch
 
 
 class TheSkiesOfFire(Area):
+	#This is the subclass inherit from the Area class
+    #Which takes five methods of events: printArrival, battleWithPyrodin, furyPyrodin, endOfStroy1, endOfStory2, 
 
+    #This is the constructor method that takes one instance variable, player
 	def __init__(self, player):
 		self.__player = player
 		self.printArrival()
@@ -24,9 +30,10 @@ class TheSkiesOfFire(Area):
 		print("Pyrodin: And now you are stepping into my world of fire.")
 		print("You had a strong feeling that there is no way to get back.")
 		print("Pyrodin: Come! Son of Lilith, man of Brave. Show me your faith!")
-		self.battleWithPyrodin()
+		self.battleWithPyrodin() #Proceed to the battle with Pyrodin
 
 	def battleWithPyrodin(self):
+		#This function generates the battle with the enemy, Pyrodin
 		print("-------The Skies Of Fire-------")
 		pyrodin = Pyrodin()
 		firstStrike = int(random.random() * 1 + 1)
@@ -60,7 +67,7 @@ class TheSkiesOfFire(Area):
 			fate(pyrodin)
 
 	def furyPyrodin(self, pyrodin):
-
+		#Pyrodin gets fury when his health is lower or equal to 10. Which makes him restore all of his health at once and the battle is restarted
 		print("You strike at Pyrodin fiercely!")
 		pyrodin.lowerHealth(self.__player.attack(pyrodin))
 
@@ -86,6 +93,7 @@ class TheSkiesOfFire(Area):
 			print("---------------------------------------------")
 			self.endOfStory2()
 
+	#These two methods prints out the two endings of the story to the terminal.
 	def endOfStroy1(self):
 		print("Thalus: My lord, bless thine safe journey here. We are here to serve your highness. Our lord hadst returnst")
 		print("THE END")

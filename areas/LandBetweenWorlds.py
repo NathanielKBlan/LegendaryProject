@@ -1,13 +1,19 @@
+
+#This is the second area of the game, Land between Worlds.
+
 import random
 
-from areas.Area import Area
-from areas.TheSkiesOfFire import TheSkiesOfFire
-from enemies.Enemy import Enemy
+from areas.Area import Area #Import the Area module as the parent class
+from areas.TheSkiesOfFire import TheSkiesOfFire #Import the module in which the story continues to the next area
+from enemies.Enemy import Enemy #Import the Enemy module as the parent class for two enemy classes of this area
 from tools.input_verification import switch
 
 
 class LandBetweenWorlds(Area):
+    #This is the subclass inherit from the Area class
+    #Which takes six methods of events: printArrival, battleWithErthel, proceedToLandOfDead, combatWithMortis, looseExperience, proceedToSkyGateWay
 
+    #This is the constructor method that takes one instance variable, player
     def __init__(self, player):
         self.__player = player
         self.__erthelIsDead = False
@@ -18,13 +24,14 @@ class LandBetweenWorlds(Area):
         print("On the path, you meet an old man who calls himself Erthel")
         print("Erthel: well well, there are still some of you left. No matter, I will finish this. Prepare yourself!")
 
+        #Check to see if the enemy of this area is dead, battle if not
         if(not self.__erthelIsDead):
             self.battleWithErthel()
         else:
             self.proceedToSkyGateWay()
 
-
     def battleWithErthel(self):
+        #This function generates the battle w/ the enemy, Erthel
         erthel = Enemy("Erthel", 10000, None)
         firstStrike = int(random.random() * 1 + 1)
 
@@ -58,13 +65,16 @@ class LandBetweenWorlds(Area):
             self.proceedToSkyGateWay()
 
     def proceedToLandOfDead(self):
+        #This method takes the choice of player of whether to combat or not
         print("As you awake, you meet a demon who calls himself Mortis")
         print("Mortis: I'll make you a deal, best me in combat or loose some valuable experience and I'll return you to the")
         print("world of the living.")
+        #Use the switch method to get the choice from player then call upon the corresponding function
         path = switch(input("What say you? "), ["Combat", "Loose Experience"], self.combatWithMortis, self.looseExperience)
         path()
 
     def combatWithMortis(self):
+        #This method generate the battle with the enemy, Mortis
         mortis = Enemy(30, None)
         firstStrike = int(random.random() * 1 + 1)
 
@@ -96,14 +106,16 @@ class LandBetweenWorlds(Area):
             self.printArrival()
 
     def looseExperience(self):
+        #This method reduce the exp of the player
         print("Mortis: Very well.")
         self.__player.setExp(self.__player.getExp() - 500)
         self.printArrival()
 
     def proceedToSkyGateWay(self):
+        #This method generates the battle w/ the enemy, Sill
         print("Guarding the gates to the skies of Fire is none other than Sill, the best combatant of the land of ashes.")
         print("Sill: I have hunted all your people down before, and I shall avenge Erthel's death!")
-        sill = Enemy("Sill", 75, None)
+        sill = Enemy("Sill", 75, None) #Generate an enemy subclass, Sill
         firstStrike = int(random.random() * 1 + 1)
 
         if (firstStrike == 1):
