@@ -1,6 +1,9 @@
 # LendaryProject
 Final project for CS111
 
+## Contributors
+Nathaniel K. Blanquel and Lynn Chou
+
 ## Goal
 To make a text based rpg game using object oriented programming.
 
