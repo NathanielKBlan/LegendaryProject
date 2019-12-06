@@ -1,13 +1,15 @@
-import random
 
+#This is the Merider class that is inherit from the Enemy class
+import random
 from enemies.Enemy import Enemy
 
 
 class Merider(Enemy):
-
+    #Initialize the subclass with three instances
     def __init__(self):
         super().__init__("Merider, Queen of Frost", 40, ["Slash", "Freeze", "Entrance"])
 
+    #This class takes three methods that represents the Merider's three skills
     def attack(self, player,  attackNum = int(random.random() * 9 + 1)):
         if(attackNum <= 5):
             self.slashAttack()
