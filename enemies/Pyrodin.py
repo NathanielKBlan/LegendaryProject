@@ -10,7 +10,7 @@ class Pyrodin(Enemy):
 		def attack(self, player, attackNum = int(random.random() * 15 + 1)):
 			if (attackNum <= 4):
 				self.slashAttack()
-			elif (attackNum > 4 and <= 9):
+			elif (attackNum > 4 and attackNum <= 9):
 				self.flameBreath(player)
 			elif (attackNum > 9 and attackNum <= 13):
 				self.radiantPlume(player)
@@ -19,8 +19,8 @@ class Pyrodin(Enemy):
 
 		#The contains of these abilities are tbc.
 
-		def flameBreath(self, player):
+		#def flameBreath(self, player):
 
-		def radiantPlume(self, player):
+		#def radiantPlume(self, player):
 
-		def hellFire(self, player):
+		#def hellFire(self, player):

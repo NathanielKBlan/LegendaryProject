@@ -1,3 +1,7 @@
+import random
+
+from enemies.Enemy import Enemy
+
 
 class Merider(Enemy):
 

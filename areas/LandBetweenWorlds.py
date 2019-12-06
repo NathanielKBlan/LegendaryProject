@@ -1,8 +1,16 @@
+import random
+
+from areas.Area import Area
+from areas.TheSkiesOfFire import TheSkiesOfFire
+from enemies.Enemy import Enemy
+from tools.input_verification import switch
+
 
 class LandBetweenWorlds(Area):
 
     def __init__(self, player):
         self.__player = player
+        self.__erthelIsDead = False
         self.printArrival()
 
     def printArrival(self):
@@ -17,7 +25,7 @@ class LandBetweenWorlds(Area):
 
 
     def battleWithErthel(self):
-        erthel = Enemy(25, None)
+        erthel = Enemy("Erthel", 10000, None)
         firstStrike = int(random.random() * 1 + 1)
 
         if (firstStrike == 1):
@@ -36,7 +44,7 @@ class LandBetweenWorlds(Area):
             erthel.lowerHealth(self.__player.attack(erthel))
             self.__player.lowerHealth(erthel.slashAttack())
 
-        if (self.__player.getHealth < 0):
+        if (self.__player.getHealth() < 0):
             print("Erthel kills you. The world goes dark.")
             self.__player.setExp(self.__player.getExp() + 50)
             self.proceedToLandOfDead()
@@ -47,7 +55,7 @@ class LandBetweenWorlds(Area):
             self.__player.setExp(self.__player.getExp() + 500)
             self.__player.levelUp()
             self.__erthelIsDead = True
-            self.proceedToSkyGateway()
+            self.proceedToSkyGateWay()
 
     def proceedToLandOfDead(self):
         print("As you awake, you meet a demon who calls himself Mortis")
@@ -95,7 +103,7 @@ class LandBetweenWorlds(Area):
     def proceedToSkyGateWay(self):
         print("Guarding the gates to the skies of Fire is none other than Sill, the best combatant of the land of ashes.")
         print("Sill: I have hunted all your people down before, and I shall avenge Erthel's death!")
-        sill = Enemy(75, None)
+        sill = Enemy("Sill", 75, None)
         firstStrike = int(random.random() * 1 + 1)
 
         if (firstStrike == 1):
@@ -114,7 +122,7 @@ class LandBetweenWorlds(Area):
             sill.lowerHealth(self.__player.attack(sill))
             self.__player.lowerHealth(sill.slashAttack())
 
-        if (self.__player.getHealth < 0):
+        if (self.__player.getHealth() < 0):
             print("Sill delivers the final blow.")
             self.__player.setExp(self.__player.getExp() + 50)
             self.proceedToLandOfDead()
@@ -123,3 +131,4 @@ class LandBetweenWorlds(Area):
             print("Sill: But how...")
             self.__player.setExp(self.__player.getExp() + 500)
             self.__player.levelUp()
+            netLevel = TheSkiesOfFire(self.__player)
