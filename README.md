@@ -7,7 +7,12 @@ To make a text based rpg game using object oriented programming.
 ## text adventure game
 
 This is a text adventure game about a chosen human who goes on a journey to aleviate a curse. 
-
+### To run
+*Must have python installed
+1. Open command terminal
+2. cd to install directory
+3. cd to game subdirectory
+4 run command: python3 LandOfAshes.py
 ## Tools package
 
 This package really only contains one module, input_verification.py which contains only one method, the switch method.
